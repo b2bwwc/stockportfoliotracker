@@ -1,0 +1,20 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <%= link_to "Team Portfolio Tracker", root_path, class: "navbar-brand" %>
+    </div>
+
+    <ul class="nav navbar-nav navbar-right" style="padding-top:5px; padding-right:5px;">
+      <% if current_user %>
+        <%= link_to "Sign Out", destroy_user_session_path %>
+      <% else %>
+        <%= link_to "User Sign In", new_user_session_path %>
+      <% end %> |
+      <% if current_admin %>
+        <%= link_to "Sign Out", destroy_admin_session_path %>
+      <% else %>
+        <%= link_to "Admin Sign In", new_admin_session_path %>
+      <% end %>
+    </ul>
+  </div>
+</nav>

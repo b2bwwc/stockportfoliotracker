@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+.app-navbar {
+  background-color: #3097d1;
+  height: 50px;
+}
