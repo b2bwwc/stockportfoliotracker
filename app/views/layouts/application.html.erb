@@ -8,11 +8,7 @@
 </head>
 <body>
   <%= render partial: 'layouts/header' %>
-  <div data-class="row">
-    <div data-class="col-md-12">
-      <%= yield %>
-    </div>
-  </div>
+  <%= yield %>
   <%= render partial: 'layouts/footer' %>
 </body>
 </html>
