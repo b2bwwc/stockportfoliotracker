@@ -1,4 +1,42 @@
 Rails.application.routes.draw do
+  get 'portfolio/new'
+
+  get 'portfolio/create'
+
+  get 'portfolio/edit'
+
+  get 'portfolio/destroy'
+
+  get 'portfolio/show'
+
+  get 'portfolio/index'
+
+  get 'portfolio/destroy'
+
+  get 'stock/new'
+
+  get 'stock/create'
+
+  get 'stock/update'
+
+  get 'stock/destroy'
+
+  get 'stock/show'
+
+  get 'stock/index'
+
+  get 'stock/new'
+
+  get 'stock/create'
+
+  get 'stock/update'
+
+  get 'stock/destroy'
+
+  get 'stock/show'
+
+  get 'stock/index'
+
   devise_for :users
   devise_for :admins
   root to: "home#index"
