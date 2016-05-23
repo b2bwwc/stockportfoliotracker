@@ -1,4 +1,4 @@
-class PortfolioController < ApplicationController
+class PortfoliosController < ApplicationController
   def new
   end
 

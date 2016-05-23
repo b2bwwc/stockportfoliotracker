@@ -1,4 +1,4 @@
-class StockController < ApplicationController
+class StocksController < ApplicationController
   def new
   end
 
