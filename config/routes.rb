@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+  resources :indexfunds
   resources :portfolios
   resources :stocks
+  resources :indexs
 
   devise_for :users
   devise_for :admins

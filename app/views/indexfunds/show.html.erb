@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th><%= @indexfund.name || "Index" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Value</td>
+        <td><%= @indexfund.value.to_f %></td>
+      </tr>
+      <tr>
+        <td>Creation Date</td>
+        <td><%= @indexfund.created_at %></td>
+      </tr>
+      <tr>
+        <td>Update Date</td>
+        <td><%= @indexfund.updated_at %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="btn-group">
+  <%= link_to 'Edit', edit_indexfund_path(@indexfund), class:'btn btn-default' %>
+  <%= link_to 'Back', indexfunds_path, class:'btn btn-default' %>
+</div>

@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Indexfunds</h1>
+
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Fund Name</th>
+        <th>Value</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @indexfunds.each do |indexfund| %>
+        <tr>
+          <td><%= link_to indexfund.name, indexfund %></td>
+          <td>$<%= indexfund.value.to_f %></td>
+          <td><%= indexfund.created_at.strftime('%v') %></td>
+          <td>
+            <div class="dropdown btn-group btn-group-sm">
+              <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                Actions
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <li><%= link_to 'Show', indexfund %></li>
+                <li><%= link_to 'Edit', edit_indexfund_path(indexfund) %></li>
+                <li><%= link_to 'Destroy', indexfund, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<br>
+
+<%= link_to 'New Indexfund', new_indexfund_path, class:"btn btn-primary" %>
