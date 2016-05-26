@@ -69,6 +69,6 @@ class IndexfundsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def indexfund_params
-      params.require(:indexfund).permit(:name)
+      params.require(:indexfund).permit(:name, :value)
     end
 end

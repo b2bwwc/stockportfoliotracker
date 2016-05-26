@@ -1,11 +1,17 @@
 Rails.application.routes.draw do
-  resources :indexfunds
   resources :portfolios
   resources :stocks
-  resources :indexs
 
   devise_for :users
+  authenticated :users do
+
+  end
+
   devise_for :admins
+  authenticated :admin do
+    resources :indexfunds
+    root to: 'indexfunds#index', as: :authenticated_root
+  end
   root to: "home#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
