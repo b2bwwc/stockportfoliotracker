@@ -1,4 +1,6 @@
 <p id="notice"><%= notice %></p>
+
+<h1>Index Fund #<%= @indexfund.id %></h1>
 <div class="table-responsive">
   <table class="table">
     <thead>
@@ -14,12 +16,22 @@
       </tr>
       <tr>
         <td>Creation Date</td>
-        <td><%= @indexfund.created_at %></td>
+        <td><%= @indexfund.created_at.strftime("%v") %></td>
       </tr>
       <tr>
         <td>Update Date</td>
-        <td><%= @indexfund.updated_at %></td>
+        <td><%= @indexfund.updated_at.strftime("%v") %></td>
       </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<h1>Allocations</h1>
+<div class="table-responsive">
+  <table class="table">
+    <tbody>
+      <%= render partial: 'allocation', collection: @indexfund.connections, as: :connection %>
     </tbody>
   </table>
 </div>
