@@ -10,7 +10,7 @@ funds will contain different portfolios which have been created by users.
 The fluctuations in stock price will be measured and displayed for the
 users / admins using HighCharts.
 
-App is current live on {Heroku}[https://stockportfoliotracker.herokuapp.com/].
+App is currently live on {Heroku}[https://stockportfoliotracker.herokuapp.com/].
 
 * Suggested Ruby Version 2.3.0
 * Suggested Rails Version 4.2.5
