@@ -1,5 +1,5 @@
 class IndexfundsController < ApplicationController
-  before_action :set_indexfund, only: [:show, :edit, :update, :destroy]
+  before_action :set_indexfund, only: [:show, :edit, :update, :destroy, :portfolios]
 
   # GET /indexfunds
   # GET /indexfunds.json
@@ -59,6 +59,10 @@ class IndexfundsController < ApplicationController
       format.html { redirect_to indexfunds_url, notice: 'Indexfund was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def portfolios
+    @portfolios = Portfolio.all
   end
 
   private

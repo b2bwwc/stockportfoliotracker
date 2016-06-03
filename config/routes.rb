@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :indexfunds
     root to: 'indexfunds#index', as: :authenticated_root
   end
+  get 'indexfunds/:id/portfolios', to: 'indexfunds#portfolios', as: :indexfunds_portfolios
   root to: "home#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

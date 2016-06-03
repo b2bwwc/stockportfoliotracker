@@ -1,0 +1,16 @@
+<div class="table-responsive">
+  <table class="table">
+
+    <% @portfolios.each do |port| %>
+    <tr>
+      <td><%= port.name %></td>
+      <td><%= port.user_id %></td>
+      <td><%= port.created_at.strftime("%v") %></td>
+      <td><%= port.updated_at.strftime("%v") %></td>
+      <td>$value investment</td>
+      <td></td>
+    </tr>
+    <% end %>
+
+  </table>
+</div>
