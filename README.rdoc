@@ -1,28 +1,24 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Team Financial Portfolio tracker. Users will have the ability to create
+portfolios, and add stocks to portfolios. Stock values will be tracked
+using the previous day's closing price.
 
-Things you may want to cover:
+Administrative users will have the ability to create index funds. Index
+funds will contain different portfolios which have been created by users.
 
-* Ruby version
+The fluctuations in stock price will be measured and displayed for the
+users / admins using HighCharts.
 
-* System dependencies
+App is current live on {Heroku}[https://stockportfoliotracker.herokuapp.com/].
 
-* Configuration
-
-* Database creation
-
-* Database initialization
+* Suggested Ruby Version 2.3.0
+* Suggested Rails Version 4.2.5
+* PostgreSQL Database
+* Devise dependency for user / admin authentication
+* HighCharts dependency for all users
+* Seed Data Task: `rake db:drop db:create db:migrate start:init`
 
 * How to run the test suite
-
 * Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+* Needed: Cron Job for stock prices

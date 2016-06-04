@@ -6,7 +6,15 @@ Rails.application.routes.draw do
     resource :stocks
 
   devise_for :users
+  authenticated :users do
+
+  end
+
   devise_for :admins
+  authenticated :admin do
+    resources :indexfunds
+    root to: 'indexfunds#index', as: :authenticated_root
+  end
   root to: "home#index"
   get 'users/:id' => 'users#show', as: :user
 
