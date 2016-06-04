@@ -1,6 +1,7 @@
 <tr>
   <td><%= connection.portfolio.name %></td>
   <td><%= connection.share.to_f * 100 %>%</td>
+  <td>$<%= connection.value.to_f %></td>
   <td><%= connection.portfolio.created_at.strftime("%v") %></td>
   <td><%= connection.portfolio.updated_at.strftime("%v") %></td>
 </tr>
