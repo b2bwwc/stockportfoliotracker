@@ -1,0 +1,17 @@
+<h1>Buy Stocks!</h1>
+
+<%= form_for @stock do |f| %>
+  <div>
+    <%= f.label :symbol, "Stock Symbol" %>
+    <%= f.text_field :symbol %>
+  </div>
+  <div>
+    <%= f.label :volume, "Quantity" %>
+    <%= f.text_field :volume %>
+  </div>
+
+
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
