@@ -1,16 +1,31 @@
-<div class="table-responsive">
+<div class="table-responsive form-group">
   <table class="table">
+    <thead>
+      <tr>
+        <th>Creator</th>
+        <th colspan="4"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @portfolios.each do |port| %>
+        <tr>
+          <td><%= port.user_id %></td>
+          <td><%= port.name %></td>
+          <td>Created on <%= port.created_at.strftime("%v") %></td>
+          <td>Updated on <%= port.updated_at.strftime("%v") %></td>
+          <td>
+            <%= form_tag indexfunds_portfolios_add_path(@indexfund), class:'form-inline' do %>
+            <div class="input-group" style="width:12em;">
+              <div class="input-group-addon">$</div>
+              <%= text_field :portfolio, :value, class:'form-control', placeholder:'0.00'  %>
+              <%= text_field :portfolio, :portfolio_id, style:'display:none;', value: port.id  %>
+            </div>
+            <%= submit_tag "Add Portfolio", class:'btn btn-default' %>
+            <% end %>
+          </td>
 
-    <% @portfolios.each do |port| %>
-    <tr>
-      <td><%= port.name %></td>
-      <td><%= port.user_id %></td>
-      <td><%= port.created_at.strftime("%v") %></td>
-      <td><%= port.updated_at.strftime("%v") %></td>
-      <td>$value investment</td>
-      <td></td>
-    </tr>
-    <% end %>
-
+        </tr>
+      <% end %>
+    </tbody>
   </table>
 </div>
