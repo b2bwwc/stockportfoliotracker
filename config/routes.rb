@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  resources :portfolios
-  resources :stocks
+
+  resources :portfolios do
+    resources :stocks
+  end
+    resource :stocks
 
   devise_for :users
   authenticated :users do
@@ -15,6 +18,11 @@ Rails.application.routes.draw do
   get  'indexfunds/:id/portfolios', to: 'indexfunds#portfolios',   as: :indexfunds_portfolios
   post 'indexfunds/:id/portfolios', to: 'indexfunds#addportfolio', as: :indexfunds_portfolios_add
   root to: "home#index"
+  get 'users/:id' => 'users#show', as: :user
+
+  get 'portfolios/index' => 'portfolios#index'
+  # post 'portfolio/create' => 'portfolio#create', as: :create_portfolio
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

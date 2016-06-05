@@ -1,0 +1,9 @@
+<h1>Portfolio#show</h1>
+<ul>
+  <lh>Portfolio we need details of:<lh>
+  <li>Name: <%= @portfolio.name %></li>
+  <li>UserID: <%= @portfolio.user_id %></li>
+  <li>Created At: <%= @portfolio.created_at %></li>
+</ul>
+
+<%= link_to "Buy Stock", new_portfolio_stock_path(:portfolio_id) %>
