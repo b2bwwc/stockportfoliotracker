@@ -1,0 +1,15 @@
+<h1>Search for stocks</h1>
+
+<h2>Stock results</h2>
+
+<% if @result.name != "N/A" %>
+  <ul>
+    <li>Name: <%= @result.name %></li>
+    <li>Previous Close: <%= number_to_currency(@result.previous_close) %></li>
+    <li>Symbol: <%= @stock_symbol %></li>
+  </ul>
+<% else %>
+  "No stock found for that symbol"
+<% end %>
+
+<%= render "search_bar" %>

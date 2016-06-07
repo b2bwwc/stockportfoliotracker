@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :portfolios do
     resources :stocks
   end
-    resource :stocks
+
 
   devise_for :users
   authenticated :users do
@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   get 'users/:id' => 'users#show', as: :user
 
   get 'portfolios/index' => 'portfolios#index'
+  get 'stocks/search' => 'stocks#search', as: :search_stocks
+
   # post 'portfolio/create' => 'portfolio#create', as: :create_portfolio
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,0 +1,10 @@
+<%= form_tag("/stocks/search", method: "get") do %>
+  <div>
+    <%= label_tag(:stock_symbol, "Stock symbol:") %>
+    <%= text_field_tag(:stock_symbol) %>
+  </div>
+
+  <div>
+    <%= submit_tag "Search" %>
+  </div>
+<% end %>

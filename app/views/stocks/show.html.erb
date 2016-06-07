@@ -1,2 +1,7 @@
 <h1>Stock#show</h1>
-<p>Find me in app/views/stock/show.html.erb</p>
+
+<p>
+  The previous closing price was <%= @stock.price %>
+</p>
+
+<%= link_to "All Stocks", stocks_path %>

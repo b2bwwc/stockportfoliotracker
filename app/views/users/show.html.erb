@@ -1,16 +1,11 @@
 <h1><%= current_user.email %></h1>
 
-<ul>
-  <li><s>redirect here after log in</s>(might need seperate Admin page)</li>
-</ul>
-
-<!-- <%= link_to "Create new portfolio", :controller => "portfolios", :action =>  "create", :portfolio => @portfolio %> -->
-<ul>
+<ul class="list-unstyled">
   <th>
-    Portfolios
+    <h2>Portfolios</h2>
   </th>
   <% current_user.portfolios.each do |portfolio| %>
-    <li><%= link_to portfolio.name, portfolio_path(id: portfolio.id) %></li>
+    <li style="margin-left:15px"><%= link_to portfolio.name, portfolio_path(id: portfolio.id) %></li>
   <% end %>
 </ul>
 </br>

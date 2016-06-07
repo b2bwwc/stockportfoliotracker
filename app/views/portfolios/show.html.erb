@@ -6,4 +6,4 @@
   <li>Created At: <%= @portfolio.created_at %></li>
 </ul>
 
-<%= link_to "Buy Stock", new_portfolio_stock_path(:portfolio_id) %>
+<%= link_to "Buy Stock", new_portfolio_stock_path(@portfolio) %>
