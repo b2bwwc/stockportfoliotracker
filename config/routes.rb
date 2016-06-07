@@ -15,6 +15,8 @@ Rails.application.routes.draw do
     resources :indexfunds
     root to: 'indexfunds#index', as: :authenticated_root
   end
+  get  'indexfunds/:id/portfolios', to: 'indexfunds#portfolios',   as: :indexfunds_portfolios
+  post 'indexfunds/:id/portfolios', to: 'indexfunds#addportfolio', as: :indexfunds_portfolios_add
   root to: "home#index"
   get 'users/:id' => 'users#show', as: :user
 

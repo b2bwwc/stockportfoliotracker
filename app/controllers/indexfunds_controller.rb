@@ -1,5 +1,5 @@
 class IndexfundsController < ApplicationController
-  before_action :set_indexfund, only: [:show, :edit, :update, :destroy]
+  before_action :set_indexfund, only: [:show, :edit, :update, :destroy, :portfolios, :addportfolio]
 
   # GET /indexfunds
   # GET /indexfunds.json
@@ -61,10 +61,25 @@ class IndexfundsController < ApplicationController
     end
   end
 
+  def portfolios
+    @portfolios = Portfolio.all
+    @connection = Connection.new
+  end
+
+  def addportfolio
+    fund = @indexfund
+    fund.connections.create(connection_params)
+    redirect_to indexfund_path
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_indexfund
       @indexfund = Indexfund.find(params[:id])
+    end
+
+    def connection_params
+      params.require(:portfolio).permit(:value, :portfolio_id)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

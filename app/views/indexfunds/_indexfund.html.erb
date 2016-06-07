@@ -1,0 +1,18 @@
+<tr>
+  <td><%= link_to indexfund.name, indexfund %></td>
+  <td>$<%= indexfund.value.to_f %></td>
+  <td><%= indexfund.created_at.strftime('%v') %></td>
+  <td>
+    <div class="dropdown btn-group btn-group-sm">
+      <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        Actions
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+        <li><%= link_to 'Show', indexfund %></li>
+        <li><%= link_to 'Edit', edit_indexfund_path(indexfund) %></li>
+        <li><%= link_to 'Destroy', indexfund, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+      </ul>
+    </div>
+  </td>
+</tr>
