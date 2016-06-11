@@ -7,15 +7,15 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
-      <ul class="nav navbar-nav navbar-right" style="padding-top:5px; padding-right:5px;">
+      <ul class="nav navbar-nav navbar-right">
 
         <% if current_user && !(current_admin) %>
           <%= render partial: 'layouts/userNav' if current_user %>
         <% elsif !(current_user) && current_admin %>
           <%= render partial: 'layouts/adminNav' if current_admin %>
         <% else %>
-          <%= link_to "User Sign In", new_user_session_path %> |
-          <%= link_to "Admin Sign In", new_admin_session_path %>
+          <li><%= link_to "User Sign In", new_user_session_path %></li>
+          <li><%= link_to "Admin Sign In", new_admin_session_path %></li>
         <% end %>
 
       </ul>
