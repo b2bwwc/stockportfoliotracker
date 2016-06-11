@@ -1,0 +1,21 @@
+<ul class="nav navbar-nav">
+  <li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+      <%= current_admin.email.capitalize %>
+      <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+      <li><a href="/">Your Index Funds</a></li>
+      <li><a href="#">Another action</a></li>
+      <li><a href="#">Something else here</a></li>
+      <li role="separator" class="divider"></li>
+
+      <li><a href="#">Public Users (WIP)</a></li>
+      <li><a href="#">Public Portfolios (WIP)</a></li>
+      <li><a href="#">Public Indexfunds (WIP)</a></li>
+
+      <li role="separator" class="divider"></li>
+      <li><%= link_to "Sign Out", destroy_admin_session_path, method: :delete %></li>
+    </ul>
+  </li>
+</ul>

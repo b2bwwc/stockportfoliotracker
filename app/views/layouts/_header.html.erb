@@ -4,16 +4,22 @@
       <%= link_to "Team Portfolio Tracker", root_path, class: "navbar-brand" %>
     </div>
 
-    <ul class="nav navbar-nav navbar-right" style="padding-top:5px; padding-right:5px;">
-      <% if current_user && !(current_admin) %>
-        <%= link_to "Home", user_path(current_user.id) %> |
-        <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
-      <% elsif !(current_user) && current_admin %>
-        <%= link_to "Sign Out", destroy_admin_session_path, method: :delete %>
-      <% else %>
-        <%= link_to "User Sign In", new_user_session_path %> |
-        <%= link_to "Admin Sign In", new_admin_session_path %>
-      <% end %>
-    </ul>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+      <ul class="nav navbar-nav navbar-right" style="padding-top:5px; padding-right:5px;">
+
+        <% if current_user && !(current_admin) %>
+          <%= render partial: 'layouts/userNav' if current_user %>
+        <% elsif !(current_user) && current_admin %>
+          <%= render partial: 'layouts/adminNav' if current_admin %>
+        <% else %>
+          <%= link_to "User Sign In", new_user_session_path %> |
+          <%= link_to "Admin Sign In", new_admin_session_path %>
+        <% end %>
+
+      </ul>
+    </div>
+
   </div>
 </nav>
