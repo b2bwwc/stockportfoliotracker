@@ -15,7 +15,13 @@
     <%= f.label :IndexFund, class:"input-group-addon" %>
     <%= f.text_field :name, class:'form-control' %>
   </div>
-  
+
+  <div class="actions input-group">
+    <%= f.label :Value, class:"input-group-addon" %>
+    <%= f.text_field :value, minimum:1, class:'form-control', type:'number' %>
+    <span class="input-group-addon">.00</span>
+  </div>
+
   <div class="actions input-group">
     <%= f.submit class:'btn btn-default' %>
   </div>
