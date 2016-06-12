@@ -29,6 +29,11 @@ class PortfoliosController < ApplicationController
     @portfolios = Portfolio.all
   end
 
+  def my_ports
+    @portfolios = current_user.portfolios.all
+    render 'index'
+  end
+
   def destroy
   end
 end

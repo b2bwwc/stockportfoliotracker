@@ -1,13 +1,22 @@
-  <li class="dropdown">
-    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-      <%= current_user.email.capitalize %>
-      <span class="caret"></span>
-    </a>
-    <ul class="dropdown-menu">
-      <li><%= link_to "Home", user_path(current_user.id) %></li>
-      <li><%= link_to "All Index Funds", indexfunds_path %></li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+    <%= current_user.email.capitalize %>
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu">
+    <li><%= link_to "Home", user_path(current_user.id) %></li>
+    <li><%= link_to "Your Index Funds", myifunds_path %></li>
+    <li><%= link_to "All Index Funds", indexfunds_path %></li>
 
-      <li role="separator" class="divider"></li>
-      <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
-    </ul>
-  </li>
+    <li role="separator" class="divider"></li>
+    <li><%= link_to "My Portfolios", myports_path %></li>
+    <li><%= link_to "All Portfolios", portfolios_path %></li>
+
+    <li role="separator" class="divider"></li>
+    <li>See All Users</li>
+    <li>See All Researched Stocks</li>
+
+    <li role="separator" class="divider"></li>
+    <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+  </ul>
+</li>

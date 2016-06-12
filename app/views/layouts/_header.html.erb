@@ -9,13 +9,10 @@
 
       <ul class="nav navbar-nav navbar-right">
 
-        <% if current_user && !(current_admin) %>
+        <% if current_user %>
           <%= render partial: 'layouts/userNav' if current_user %>
-        <% elsif !(current_user) && current_admin %>
-          <%= render partial: 'layouts/adminNav' if current_admin %>
         <% else %>
           <li><%= link_to "User Sign In", new_user_session_path %></li>
-          <li><%= link_to "Admin Sign In", new_admin_session_path %></li>
         <% end %>
 
       </ul>

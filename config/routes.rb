@@ -1,28 +1,22 @@
 Rails.application.routes.draw do
-
-  resources :portfolios do
-    resources :stocks
-  end
-
-
   devise_for :users
-  authenticated :users do
+  authenticated :user do
+    get  'myindexfunds', to: 'indexfunds#my_index', as: :myifunds
+    get  'myportfolios', to: 'portfolios#my_ports', as: :myports
 
-  end
-
-  devise_for :admins
-  authenticated :admin do
-    resources :indexfunds, except: [:index]
-    root to: 'indexfunds#my_index', as: :authenticated_root
     get  'indexfunds/:id/portfolios', to: 'indexfunds#portfolios',   as: :indexfunds_portfolios
     post 'indexfunds/:id/portfolios', to: 'indexfunds#addportfolio', as: :indexfunds_portfolios_add
+    resources :indexfunds, except: [:index]
+    resources :portfolios, except: [:index] do
+      resources :stocks
+    end
   end
-  resources :indexfunds, only: [:index]
 
+  resources :portfolios, only: :index
+  resources :indexfunds, only: :index
 
   root to: "home#index"
   get 'users/:id' => 'users#show', as: :user
-
   get 'portfolios/index' => 'portfolios#index'
   get 'stocks/search' => 'stocks#search', as: :search_stocks
 

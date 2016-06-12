@@ -8,7 +8,7 @@ class IndexfundsController < ApplicationController
   end
 
   def my_index
-    @indexfunds = current_admin.indexfunds
+    @indexfunds = current_user.indexfunds
     render 'index'
   end
 
@@ -29,7 +29,7 @@ class IndexfundsController < ApplicationController
   # POST /indexfunds
   # POST /indexfunds.json
   def create
-    @indexfund = current_admin.indexfunds.new(indexfund_params)
+    @indexfund = current_user.indexfunds.new(indexfund_params)
 
     respond_to do |format|
       if @indexfund.save
@@ -45,7 +45,7 @@ class IndexfundsController < ApplicationController
   # PATCH/PUT /indexfunds/1
   # PATCH/PUT /indexfunds/1.json
   def update
-    @indexfund = current_admin.indexfunds.find(params[:id])
+    @indexfund = current_user.indexfunds.find(params[:id])
     respond_to do |format|
       if @indexfund.update(indexfund_params)
         format.html { redirect_to @indexfund, notice: 'Indexfund was successfully updated.' }
@@ -60,7 +60,7 @@ class IndexfundsController < ApplicationController
   # DELETE /indexfunds/1
   # DELETE /indexfunds/1.json
   def destroy
-    @indexfund = current_admin.indexfunds.find(params[:id])
+    @indexfund = current_user.indexfunds.find(params[:id])
     @indexfund.destroy
     respond_to do |format|
       format.html { redirect_to indexfunds_url, notice: 'Indexfund was successfully destroyed.' }
