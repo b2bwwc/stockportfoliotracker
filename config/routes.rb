@@ -12,11 +12,14 @@ Rails.application.routes.draw do
 
   devise_for :admins
   authenticated :admin do
-    resources :indexfunds
-    root to: 'indexfunds#index', as: :authenticated_root
+    resources :indexfunds, except: [:index]
+    root to: 'indexfunds#my_index', as: :authenticated_root
+    get  'indexfunds/:id/portfolios', to: 'indexfunds#portfolios',   as: :indexfunds_portfolios
+    post 'indexfunds/:id/portfolios', to: 'indexfunds#addportfolio', as: :indexfunds_portfolios_add
   end
-  get  'indexfunds/:id/portfolios', to: 'indexfunds#portfolios',   as: :indexfunds_portfolios
-  post 'indexfunds/:id/portfolios', to: 'indexfunds#addportfolio', as: :indexfunds_portfolios_add
+  resources :indexfunds, only: [:index]
+
+
   root to: "home#index"
   get 'users/:id' => 'users#show', as: :user
 

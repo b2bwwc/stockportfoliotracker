@@ -5,14 +5,8 @@
       <span class="caret"></span>
     </a>
     <ul class="dropdown-menu">
-      <li><a href="/">Your Index Funds</a></li>
-      <li><a href="#">Another action</a></li>
-      <li><a href="#">Something else here</a></li>
-      <li role="separator" class="divider"></li>
-
-      <li><a href="#">Public Users (WIP)</a></li>
-      <li><a href="#">Public Portfolios (WIP)</a></li>
-      <li><a href="#">Public Indexfunds (WIP)</a></li>
+      <li><%= link_to "Your Index Funds", authenticated_root_path %></li>
+      <li><%= link_to "All Index Funds", indexfunds_path %></li>
 
       <li role="separator" class="divider"></li>
       <li><%= link_to "Sign Out", destroy_admin_session_path, method: :delete %></li>
