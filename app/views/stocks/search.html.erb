@@ -9,7 +9,11 @@
     <li>Symbol: <%= @stock_symbol %></li>
   </ul>
 <% else %>
-  "No stock found for that symbol"
+  "No stock found"
 <% end %>
+
+<!-- Add form for user to input number of shares to buy here.
+Will use @result for the rest of the stock info -->
+
 
 <%= render "search_bar" %>

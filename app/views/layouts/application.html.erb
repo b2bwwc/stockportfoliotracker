@@ -8,9 +8,12 @@
 </head>
 <body>
   <%= render partial: 'layouts/header' %>
+  <% if flash[:alert] %>
+    <div class="notice"><%= flash[:alert] %></div>
+  <% end %>
   <div class="container">
     <%= yield %>
   </div>
-  <!-- <%= render partial: 'layouts/footer' %> -->
+  <%= render partial: 'layouts/footer' %>
 </body>
 </html>

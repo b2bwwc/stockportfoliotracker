@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   resources :portfolios do
     resources :stocks
+
   end
 
 
@@ -20,7 +21,6 @@ Rails.application.routes.draw do
   root to: "home#index"
   get 'users/:id' => 'users#show', as: :user
 
-  get 'portfolios/index' => 'portfolios#index'
   get 'stocks/search' => 'stocks#search', as: :search_stocks
 
   # post 'portfolio/create' => 'portfolio#create', as: :create_portfolio
