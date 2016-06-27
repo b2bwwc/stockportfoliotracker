@@ -1,10 +1,15 @@
 class IndexfundsController < ApplicationController
-  before_action :set_indexfund, only: [:show, :edit, :update, :destroy, :portfolios, :addportfolio]
+  before_action :set_indexfund, only: [:show, :edit, :portfolios, :addportfolio]
 
   # GET /indexfunds
   # GET /indexfunds.json
   def index
     @indexfunds = Indexfund.all
+  end
+
+  def my_index
+    @indexfunds = current_user.indexfunds
+    render 'index'
   end
 
   # GET /indexfunds/1
@@ -24,7 +29,7 @@ class IndexfundsController < ApplicationController
   # POST /indexfunds
   # POST /indexfunds.json
   def create
-    @indexfund = Indexfund.new(indexfund_params)
+    @indexfund = current_user.indexfunds.new(indexfund_params)
 
     respond_to do |format|
       if @indexfund.save
@@ -40,6 +45,7 @@ class IndexfundsController < ApplicationController
   # PATCH/PUT /indexfunds/1
   # PATCH/PUT /indexfunds/1.json
   def update
+    @indexfund = current_user.indexfunds.find(params[:id])
     respond_to do |format|
       if @indexfund.update(indexfund_params)
         format.html { redirect_to @indexfund, notice: 'Indexfund was successfully updated.' }
@@ -54,6 +60,7 @@ class IndexfundsController < ApplicationController
   # DELETE /indexfunds/1
   # DELETE /indexfunds/1.json
   def destroy
+    @indexfund = current_user.indexfunds.find(params[:id])
     @indexfund.destroy
     respond_to do |format|
       format.html { redirect_to indexfunds_url, notice: 'Indexfund was successfully destroyed.' }

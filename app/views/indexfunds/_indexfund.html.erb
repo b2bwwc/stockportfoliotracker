@@ -1,7 +1,16 @@
 <tr>
-  <td><%= link_to indexfund.name, indexfund %></td>
+  <td>
+    <% if current_user %>
+    <%= link_to indexfund.name, indexfund %>
+    <% else %>
+    <%= indexfund.name %>
+    <% end %>
+  </td>
+
   <td>$<%= indexfund.value.to_f %></td>
   <td><%= indexfund.created_at.strftime('%v') %></td>
+
+  <% if current_user %>
   <td>
     <div class="dropdown btn-group btn-group-sm">
       <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -15,4 +24,6 @@
       </ul>
     </div>
   </td>
+  <% end %>
+
 </tr>

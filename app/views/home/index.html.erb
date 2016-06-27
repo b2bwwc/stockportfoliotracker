@@ -3,19 +3,13 @@
     <h1 class="text-center">Team Portfolio Tracker</h1>
   </div>
 </div>
-<% if !(current_user) && !(current_admin) %>
+<% if !(current_user) && !(current_user) %>
   <div class="row text-center">
     <div class="col-md-6">
       <h1>User</h1>
       <h4>Sign into your team <%= link_to "here", new_user_session_path %>.</h4>
       <h4>or</h4>
       <h4>Sign up for your team <%= link_to "here", new_user_registration_path %></h4>
-    </div>
-    <div class="col-md-6">
-      <h1>Admin</h1>
-      <h4>Sign into your team <%= link_to "here", new_admin_session_path %>.</h4>
-      <h4>or</h4>
-      <h4>Sign up for your team <%= link_to "here", new_admin_registration_path %></h4>
     </div>
   </div>
 <% end %>
