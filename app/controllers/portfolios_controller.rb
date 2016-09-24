@@ -29,6 +29,15 @@ class PortfoliosController < ApplicationController
     @portfolios = Portfolio.all
   end
 
+  def modify
+    count = params[:count]
+    stock = params[:stock_symbol]
+    @portfolio = current_user.portfolios.find_by(name: params[:portfolio_name])
+    p params
+    p params
+    @portfolios = current_user.portfolios.find(1)
+  end
+
   def my_ports
     @portfolios = current_user.portfolios.all
     render 'index'

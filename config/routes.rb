@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   authenticated :user do
     get  'myindexfunds', to: 'indexfunds#my_index', as: :myifunds
     get  'myportfolios', to: 'portfolios#my_ports', as: :myports
+    post 'portfolios/modify', to: 'portfolios#modify', as: :modify
 
     get  'indexfunds/:id/portfolios', to: 'indexfunds#portfolios',   as: :indexfunds_portfolios
     post 'indexfunds/:id/portfolios', to: 'indexfunds#addportfolio', as: :indexfunds_portfolios_add

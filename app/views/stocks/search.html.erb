@@ -12,8 +12,20 @@
   "No stock found"
 <% end %>
 
+<%= form_tag("/portfolios/modify", method: "post") do %>
+  <h3>Add to Portfolio:</h3>
+  <p>Add <input type="number" name="count" placeholder="0"/> units of stock to,</p>
+  <input style="display:none;" value="<%= @stock_symbol %>" name="stock_symbol"></input>
+  <p>Portfolio
+    <%= select_tag "portfolio_name", options_for_select( @portfolios.map{|x| x.name}) %>
+  </p>
+  <div>
+    <%= submit_tag "Submit" %>
+  </div>
+<% end %>
+
 <!-- Add form for user to input number of shares to buy here.
 Will use @result for the rest of the stock info -->
 
-
+<h2>Search for a new stock:</h2>
 <%= render "search_bar" %>
