@@ -7,6 +7,7 @@ class StocksController < ApplicationController
   end
 
   def search
+    @portfolios = current_user.portfolios.all
     @stock = Stock.new
     # Uses the string provided by user to search API for stock information, hasn't made DB entry yet
     yahoo_client = YahooFinance::Client.new

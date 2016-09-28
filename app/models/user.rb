@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-  # has_many :indexfunds
   has_many :portfolios
 
   # Include default devise modules. Others available are:

@@ -18,19 +18,10 @@ ActiveRecord::Schema.define(version: 20160801183012) do
 
   create_table "connections", force: :cascade do |t|
     t.integer  "portfolio_id"
-    t.integer  "indexfund_id"
     t.integer  "value"
     t.integer  "share"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-  end
-
-  create_table "indexfunds", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.integer  "value"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "portfolios", force: :cascade do |t|
