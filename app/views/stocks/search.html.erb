@@ -1,19 +1,26 @@
 <h1>Search for stocks</h1>
+<%= render "search_bar" %>
 
 <h2>Stock results</h2>
 
 <% if @result.name != "N/A" %>
   <ul>
-    <li>Name: <%= @result.name %></li>
-    <li>Previous Close: <%= number_to_currency(@result.previous_close) %></li>
-    <li>Symbol: <%= @stock_symbol %></li>
+    <li><strong>Name:</strong> <%= @result.name %></li>
+    <li><strong>Previous Close:</strong> <%= number_to_currency(@result.previous_close) %></li>
+    <li><strong>Symbol:</strong> <%= @stock_symbol %></li>
   </ul>
 <% else %>
-  "No stock found"
+  <h4>No stock found</h4>
 <% end %>
 
-<!-- Add form for user to input number of shares to buy here.
-Will use @result for the rest of the stock info -->
+<%= form_tag create_stocks_path, method: :post do %>
+  <div class="input-group" style="width:40em;">
+    <div class="input-group-addon">Shares</div>
+    <%= text_field :stock, :name, class:'form-control', value: @result.name  %>
+    <%= text_field :stock, :symbol, class:'form-control', value: @stock_symbol  %>
+    <%= text_field :stock, :price, class:'form-control', value: @result.previous_close  %>
+    <%= text_field :stock, :volume, class:'form-control', value: ""  %>
 
-
-<%= render "search_bar" %>
+  </div>
+  <%= submit_tag "Buy Stocks", class:'btn btn-success' %>
+<% end %>

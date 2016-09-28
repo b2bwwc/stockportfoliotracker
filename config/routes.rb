@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get 'users/:id' => 'users#show', as: :user
   get 'portfolios/index' => 'portfolios#index'
   get 'stocks/search' => 'stocks#search', as: :search_stocks
+  post 'stocks/search' => 'stocks#create', as: :create_stocks
 
   # post 'portfolio/create' => 'portfolio#create', as: :create_portfolio
 

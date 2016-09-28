@@ -11,9 +11,12 @@
   <% if flash[:alert] %>
     <div class="notice"><%= flash[:alert] %></div>
   <% end %>
-  <div class="container">
+  <div class="container", style="padding-bottom:50px;">
     <%= yield %>
   </div>
-  <%= render partial: 'layouts/footer' %>
+  <div>
+    <%= render partial: 'layouts/footer' %>
+  </div>
+
 </body>
 </html>
